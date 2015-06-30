@@ -11,22 +11,12 @@
 |
 */
 
-$app->get('/blog', function() use ($app) {
-    return ;
-});
+$app->get('/blog', 'App\Http\Controllers\ArticleController@index');
 
-$app->get('/blog/{article}', function($article) use ($app) {
-    return ;
-});
+$app->get('/blog/{id}', 'App\Http\Controllers\ArticleController@getArticle');
 
-$app->get('/admin/create', function() use ($app) {
-    return ;
-});
+$app->get('/admin/create', 'App\Http\Controllers\ArticleController@createArticle');
 
-$app->get('/admin/update/{article}', function($article) use ($app) {
-    return ;
-});
+$app->get('/admin/update/{id}', 'App\Http\Controllers\ArticleController@updateArticle');
 
-$app->get('/admin/delete/{article}', function($article) use ($app) {
-    return ;
-});
+$app->get('/admin/delete/{id}', 'App\Http\Controllers\ArticleController@deleteArticle');
