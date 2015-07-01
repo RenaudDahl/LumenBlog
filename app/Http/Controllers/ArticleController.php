@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -23,7 +22,7 @@ class ArticleController extends Controller
 
     public function getArticle($id)
     {
-        $article = Article::findOrNew($id);
+        $article = Article::findOrFail($id);
 
         return response()->json($article);
     }
@@ -36,7 +35,7 @@ class ArticleController extends Controller
     }
 
     public function deleteArticle($id){
-        $article  = Article::findOrNew($id);
+        $article  = Article::findOrFail($id);
 
         $article->delete();
 
@@ -44,7 +43,7 @@ class ArticleController extends Controller
     }
 
     public function updateArticle(Request $request,$id){
-        $article  = Article::findOrNew($id);
+        $article  = Article::findOrFail($id);
 
         $article->title = $request->input('title');
         $article->content = $request->input('content');
