@@ -13,4 +13,8 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $fillable = ['title', 'content'];
+
+    protected $table = 'articles';
+
+    public $timestamps = false;
 }

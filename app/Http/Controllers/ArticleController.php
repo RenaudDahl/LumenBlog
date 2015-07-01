@@ -16,8 +16,14 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+        $output = '';
 
-        return response()->json($articles);
+        foreach ($articles as $post) {
+            $output .= $post->title;
+            $output .= ' \n ';
+        }
+
+        return response()->json($output);
     }
 
     public function getArticle($id)
