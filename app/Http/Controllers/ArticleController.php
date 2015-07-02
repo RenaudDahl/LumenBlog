@@ -9,7 +9,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -33,29 +32,4 @@ class ArticleController extends Controller
         return response()->json($article);
     }
 
-    public function createArticle(Request $request)
-    {
-        $article = Article::create($request->all());
-
-        return response()->json($article);
-    }
-
-    public function deleteArticle($id){
-        $article  = Article::findOrFail($id);
-
-        $article->delete();
-
-        return response()->json('success');
-    }
-
-    public function updateArticle(Request $request,$id){
-        $article  = Article::findOrFail($id);
-
-        $article->title = $request->input('title');
-        $article->content = $request->input('content');
-
-        $article->save();
-
-        return response()->json($article);
-    }
 }

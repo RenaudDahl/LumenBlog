@@ -15,8 +15,8 @@ $app->get('/blog', 'App\Http\Controllers\ArticleController@index');
 
 $app->get('/blog/{id}', 'App\Http\Controllers\ArticleController@getArticle');
 
-$app->get('/admin/create', 'App\Http\Controllers\ArticleController@createArticle');
+$app->post('/admin/create', 'App\Http\Controllers\AdminController@createArticle');
 
-$app->get('/admin/update/{id}', 'App\Http\Controllers\ArticleController@updateArticle');
+$app->post('/admin/update/{id}', 'App\Http\Controllers\AdminController@updateArticle');
 
-$app->get('/admin/delete/{id}', 'App\Http\Controllers\ArticleController@deleteArticle');
+$app->get('/admin/delete/{id}', 'App\Http\Controllers\AdminController@deleteArticle');
