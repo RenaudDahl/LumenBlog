@@ -13,23 +13,31 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function createArticle(Request $request)
+    public function createArticle(Request $request, $api)
     {
         $article = Article::create($request->all());
 
-        return response()->json($article);
+        if ($api) {
+            return response()->json($article);
+        } else {
+            return $article;
+        }
     }
 
-    public function deleteArticle($id)
+    public function deleteArticle($id, $api)
     {
         $article = Article::findOrFail($id);
 
         $article->delete();
 
-        return response()->json('success');
+        if ($api){
+            return response()->json('success');
+        } else {
+            return 'success';
+        }
     }
 
-    public function updateArticle(Request $request, $id)
+    public function updateArticle(Request $request, $id, $api)
     {
         $article = Article::findOrFail($id);
 
@@ -38,7 +46,11 @@ class AdminController extends Controller
 
         $article->save();
 
-        return response()->json($article);
+        if ($api) {
+            return response()->json($article);
+        } else {
+            return $article;
+        }
     }
 
 }

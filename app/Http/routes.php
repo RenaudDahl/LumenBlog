@@ -11,12 +11,16 @@
 |
 */
 
-$app->get('/blog', 'ArticleController@index');
+// API Routes
 
-$app->get('/blog/{id}', 'ArticleController@getArticle');
+$app->get('/blog/{api?}', 'ArticleController@index');
 
-$app->post('/admin/create', 'AdminController@createArticle');
+$app->get('/blog/{id}/{api?}', 'ArticleController@getArticle');
 
-$app->post('/admin/update/{id}', 'AdminController@updateArticle');
+$app->post('/admin/create/{api?}', 'AdminController@createArticle');
 
-$app->get('/admin/delete/{id}', 'AdminController@deleteArticle');
+$app->post('/admin/update/{id}/{api?}', 'AdminController@updateArticle');
+
+$app->get('/admin/delete/{id}/{api?}', 'AdminController@deleteArticle');
+
+
