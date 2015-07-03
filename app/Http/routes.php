@@ -11,12 +11,12 @@
 |
 */
 
-$app->get('/blog', 'App\Http\Controllers\ArticleController@index');
+$app->get('/blog', 'ArticleController@index');
 
-$app->get('/blog/{id}', 'App\Http\Controllers\ArticleController@getArticle');
+$app->get('/blog/{id}', 'ArticleController@getArticle');
 
-$app->post('/admin/create', 'App\Http\Controllers\AdminController@createArticle');
+$app->post('/admin/create', 'AdminController@createArticle');
 
-$app->post('/admin/update/{id}', 'App\Http\Controllers\AdminController@updateArticle');
+$app->post('/admin/update/{id}', 'AdminController@updateArticle');
 
-$app->get('/admin/delete/{id}', 'App\Http\Controllers\AdminController@deleteArticle');
+$app->get('/admin/delete/{id}', 'AdminController@deleteArticle');

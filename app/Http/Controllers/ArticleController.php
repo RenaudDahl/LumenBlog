@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
         foreach ($articles as $post) {
             $output .= $post->title;
-            $output .= ' \n ';
+            $output .= ' ';
         }
 
         return response()->json($output);
