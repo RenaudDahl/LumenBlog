@@ -12,7 +12,7 @@ use App\Models\Article;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index($api)
     {
         $articles = Article::all();
         $output = '';
@@ -22,14 +22,22 @@ class ArticleController extends Controller
             $output .= ' ';
         }
 
-        return response()->json($output);
+        if ($api) {
+            return response()->json($output);
+        } else {
+            return $output;
+        }
     }
 
-    public function getArticle($id)
+    public function getArticle($id, $api)
     {
         $article = Article::findOrFail($id);
 
-        return response()->json($article);
+        if ($api) {
+            return response()->json($article);
+        } else {
+            return $article;
+        }
     }
 
 }
