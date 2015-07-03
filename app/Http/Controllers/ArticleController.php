@@ -15,11 +15,11 @@ class ArticleController extends Controller
     public function index($api)
     {
         $articles = Article::all();
-        $output = '';
+        $output = array();
 
         foreach ($articles as $post) {
-            $output .= $post->title;
-            $output .= ' ';
+            $url = route('display', ['id' => $post->getId()]);
+            $output[] = [$post->title, $url];
         }
 
         if ($api) {

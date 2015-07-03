@@ -13,14 +13,14 @@
 
 // API Routes
 
-$app->get('/blog/{api?}', 'ArticleController@index');
+$app->get('/blog/{api?}', ['as' => 'accueil', 'ArticleController@index']);
 
-$app->get('/blog/{id}/{api?}', 'ArticleController@getArticle');
+$app->get('/blog/{id}/{api?}', ['as'=> 'display', 'ArticleController@getArticle']);
 
-$app->post('/admin/create/{api?}', 'AdminController@createArticle');
+$app->post('/admin/create/{api?}', ['as'=> 'create', 'AdminController@createArticle']);
 
-$app->post('/admin/update/{id}/{api?}', 'AdminController@updateArticle');
+$app->post('/admin/update/{id}/{api?}', ['as'=> 'update', 'AdminController@updateArticle']);
 
-$app->get('/admin/delete/{id}/{api?}', 'AdminController@deleteArticle');
+$app->get('/admin/delete/{id}/{api?}', ['as'=> 'delete', 'AdminController@deleteArticle']);
 
 
